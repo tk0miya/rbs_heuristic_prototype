@@ -96,3 +96,5 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+Pathname(__dir__).join("support").glob("**/*.rb").sort.each { |f| require f.to_s }

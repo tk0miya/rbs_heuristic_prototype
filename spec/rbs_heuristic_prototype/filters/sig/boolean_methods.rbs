@@ -1,0 +1,4 @@
+class Foo
+  def bar: (untyped param1, untyped param2) -> untyped
+  def baz?: () -> untyped
+end

@@ -1,0 +1,9 @@
+module RbsHeuristicPrototype
+  module Filters
+    class BooleanMethodsFilter < Base
+      def process_member: (RBS::AST::Members::t member) -> RBS::AST::Members::t
+      def process_method_type: (RBS::MethodType method_type) -> RBS::MethodType
+      def process_type: (RBS::Types::Function type) -> RBS::Types::Function
+    end
+  end
+end

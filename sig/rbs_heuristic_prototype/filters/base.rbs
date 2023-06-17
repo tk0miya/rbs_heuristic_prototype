@@ -1,0 +1,15 @@
+module RbsHeuristicPrototype
+  module Filters
+    class Base
+      attr_reader env: RBS::Environment
+
+      def initialize: (RBS::Environment env) -> void
+      def apply: () -> RBS::Environment
+      def process: (RBS::AST::Declarations::t decl) -> RBS::AST::Declarations::t
+      def process_module: (RBS::AST::Declarations::Module decl) -> RBS::AST::Declarations::Module
+      def process_class: (RBS::AST::Declarations::Class decl) -> RBS::AST::Declarations::Class
+      def process_member: (RBS::AST::Members::t member) -> RBS::AST::Members::t
+    end
+  end
+end
+
