@@ -25,3 +25,11 @@ jobs:
         bundler-cache: true
     - name: Run the default task
       run: bundle exec rake
+    - name: Set rbs collection up
+      run: bundle exec rbs collection install --frozen
+    - name: Run rspec
+      run: bundle exec rspec
+    - name: Run rbs validate
+      run: bundle exec rbs -Isig validate --silent
+    - name: Run steep check
+      run: bundle exec steep check
