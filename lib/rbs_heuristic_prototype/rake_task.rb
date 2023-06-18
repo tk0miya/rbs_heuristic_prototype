@@ -37,7 +37,7 @@ module RbsHeuristicPrototype
         path.find do |entry|
           next unless entry.file?
 
-          env = FILTERS.inject(load_env(entry)) do |result, filter|
+          env = FILTERS.inject(load_env(entry)) do |result, (_name, filter)|
             filter.new(result).apply
           end
 
