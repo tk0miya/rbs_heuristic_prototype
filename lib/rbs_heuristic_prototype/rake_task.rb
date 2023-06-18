@@ -5,14 +5,14 @@ require "rake"
 require "rake/tasklib"
 
 module RbsHeuristicPrototype
-  class RakeTask < Rake::Tasklib
+  class RakeTask < Rake::TaskLib
     FILTERS = {
       boolean_methods: Filters::BooleanMethodsFilter
     }.freeze
 
     attr_reader :name, :path
 
-    def initialize(name = :"rbs:prototype:heuristic")
+    def initialize(name = :"rbs:prototype:heuristic", &block)
       super()
 
       @name = name
@@ -27,17 +27,17 @@ module RbsHeuristicPrototype
     def define_setup_task
       desc "Run all tasks of rbs_heuristic_prototype"
 
-      deps [:"#{name}:filter"]
+      deps = [:"#{name}:apply"]
       task("#{name}:setup": deps)
     end
 
     def define_apply_task
       desc "Apply heuristic filters to prototype signatures"
-      task("#{name}:setup": :environment) do
+      task("#{name}:apply": :environment) do
         path.find do |entry|
           next unless entry.file?
 
-          env = FILTERS.inject(load_env(entry)) do |result, filter|
+          env = FILTERS.inject(load_env(entry)) do |result, (_name, filter)|
             filter.new(result).apply
           end
 
