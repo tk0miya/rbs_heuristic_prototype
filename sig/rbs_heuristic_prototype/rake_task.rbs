@@ -1,0 +1,17 @@
+module RbsHeuristicPrototype
+  class RakeTask < Rake::TaskLib
+    FILTERS: Hash[Symbol, singleton(Filters::Base)]
+
+    attr_reader name: Symbol
+    attr_reader path: Pathname
+
+    @name: Symbol
+    @path: Pathname
+
+    def initialize: (?Symbol name) ?{ (self) -> void } -> void
+    def define_setup_task: () -> void
+    def define_apply_task: () -> void
+    def load_env: (Pathname path) -> RBS::Environment
+    def write_env: (Pathname path, RBS::Environment env) -> void
+  end
+end
