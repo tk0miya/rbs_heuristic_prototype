@@ -12,7 +12,7 @@ module RbsHeuristicPrototype
 
     attr_reader :name, :path
 
-    def initialize(name = :"rbs:prototype:heuristic")
+    def initialize(name = :"rbs:prototype:heuristic", &block)
       super()
 
       @name = name
