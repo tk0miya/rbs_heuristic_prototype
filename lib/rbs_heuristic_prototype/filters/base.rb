@@ -82,6 +82,14 @@ module RbsHeuristicPrototype
       def process_member(member)
         member
       end
+
+      def const_get(decl)
+        decl.name.to_namespace.path.inject(Kernel) do |const, mod|
+          const.const_get(mod)
+        end
+      rescue StandardError
+        nil
+      end
     end
   end
 end

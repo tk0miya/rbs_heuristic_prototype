@@ -1,0 +1,5 @@
+class Account
+  def matured: () -> untyped
+  def name_given: () -> untyped
+  def other_method: () -> untyped
+end
