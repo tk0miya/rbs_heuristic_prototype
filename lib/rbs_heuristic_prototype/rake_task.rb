@@ -7,7 +7,8 @@ require "rake/tasklib"
 module RbsHeuristicPrototype
   class RakeTask < Rake::TaskLib
     FILTERS = {
-      boolean_methods: Filters::BooleanMethodsFilter
+      boolean_methods: Filters::BooleanMethodsFilter,
+      symbol_array_constants: Filters::SymbolArrayConstantsFilter
     }.freeze
 
     attr_reader :name, :path

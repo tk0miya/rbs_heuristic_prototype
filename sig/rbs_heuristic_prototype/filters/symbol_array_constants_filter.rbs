@@ -1,0 +1,12 @@
+module RbsHeuristicPrototype
+  module Filters
+    class SymbolArrayConstantsFilter < Base
+      def process_constant: (RBS::AST::Declarations::Constant constant) -> RBS::AST::Declarations::Constant
+      def process_constant_type: (RBS::Types::t type) -> RBS::Types::ClassInstance
+      def symbol_array?: (RBS::Types::t type) -> bool
+      def array?: (RBS::Types::t type) -> bool
+      def symbol_union?: (RBS::Types::t type) -> bool
+      def symbol?: (RBS::Types::t type) -> bool
+    end
+  end
+end
