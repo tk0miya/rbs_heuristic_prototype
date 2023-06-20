@@ -26,6 +26,8 @@ module RbsHeuristicPrototype
           process_module(decl)
         when RBS::AST::Declarations::Class
           process_class(decl)
+        when RBS::AST::Declarations::Constant
+          process_constant(decl)
         else
           decl
         end
@@ -71,6 +73,10 @@ module RbsHeuristicPrototype
           location: decl.location,
           comment: decl.comment
         )
+      end
+
+      def process_constant(constant)
+        constant
       end
 
       def process_member(member)

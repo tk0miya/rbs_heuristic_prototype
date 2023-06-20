@@ -1,0 +1,7 @@
+module Foo
+  MODULE_CONSTANT: ::Array[:lorem]
+
+  class Bar
+    CLASS_CONSTANT: ::Array[:lorem | :ipsum | :dolor | :sit | :amet]
+  end
+end
