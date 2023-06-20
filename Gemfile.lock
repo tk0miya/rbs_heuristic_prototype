@@ -20,6 +20,11 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    activemodel (7.0.5)
+      activesupport (= 7.0.5)
+    activerecord (7.0.5)
+      activemodel (= 7.0.5)
+      activesupport (= 7.0.5)
     activesupport (7.0.5)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
@@ -143,6 +148,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activerecord
   railties
   rake (~> 13.0)
   rbs_heuristic_prototype!

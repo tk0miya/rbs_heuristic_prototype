@@ -1,0 +1,12 @@
+module RbsHeuristicPrototype
+  module Filters
+    class ActiveModelValidationsFilter < Base
+      @klass: Class?
+
+      def process_class: (RBS::AST::Declarations::Class decl) -> RBS::AST::Declarations::Class
+      def process_member: (RBS::AST::Members::t member) -> RBS::AST::Members::t
+      def process_method_type: (RBS::MethodType method_type) -> RBS::MethodType
+      def process_type: (RBS::Types::Function type) -> RBS::Types::Function
+    end
+  end
+end

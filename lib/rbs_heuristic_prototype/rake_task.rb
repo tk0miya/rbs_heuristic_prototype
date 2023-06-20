@@ -7,6 +7,7 @@ require "rake/tasklib"
 module RbsHeuristicPrototype
   class RakeTask < Rake::TaskLib
     FILTERS = {
+      active_model_validations: Filters::ActiveModelValidationFilter,
       boolean_methods: Filters::BooleanMethodsFilter,
       symbol_array_constants: Filters::SymbolArrayConstantsFilter
     }.freeze
