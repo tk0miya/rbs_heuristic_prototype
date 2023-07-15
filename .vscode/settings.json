@@ -2,5 +2,10 @@
     "[ruby]": {
         "editor.defaultFormatter": "Shopify.ruby-lsp"
     },
-    "rbs-helper.signature-directory": "sig"
+    "rbs-helper.signature-directory": "sig",
+    "cSpell.words": [
+        "boolish",
+        "codebases",
+        "rubygems"
+    ]
 }
