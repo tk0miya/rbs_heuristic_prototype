@@ -2,6 +2,7 @@
 
 require_relative "rbs_heuristic_prototype/filters/active_model_validations_filter"
 require_relative "rbs_heuristic_prototype/filters/boolean_methods_filter"
+require_relative "rbs_heuristic_prototype/filters/deep_module_filter"
 require_relative "rbs_heuristic_prototype/filters/symbol_array_constants_filter"
 require_relative "rbs_heuristic_prototype/rake_task"
 require_relative "rbs_heuristic_prototype/version"

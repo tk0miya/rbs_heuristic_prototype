@@ -1,0 +1,15 @@
+module RbsHeuristicPrototype
+  module Filters
+    class DeepModuleFilter < Base
+      attr_reader stack: Array[Module | Class | nil]
+
+      @stack: Array[Module | Class | nil]
+
+      def initialize: (RBS::Environment env) -> void
+      def process_module: (RBS::AST::Declarations::Module decl) -> RBS::AST::Declarations::t
+      def process_class: (RBS::AST::Declarations::Class decl) -> RBS::AST::Declarations::t
+      def namespace_to_decl!: (RBS::Namespace namespace) -> Array[RBS::AST::Declarations::Module | RBS::AST::Declarations::Class]
+      def obj_to_decl: (Module | Class obj) -> (RBS::AST::Declarations::Module | RBS::AST::Declarations::Class)
+    end
+  end
+end

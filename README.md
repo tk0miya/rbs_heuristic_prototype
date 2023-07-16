@@ -40,6 +40,9 @@ by `rbs prototype` according to the heuristic rules.
   * Convert a constant annotated with Array of Union of symbols (ex. `Array[:sym1 | :sym2 | ...]`) to a constant annotated with `Array[Symbol]`
   * This is useful to avoid `Ruby::IncompatibleAssignment` warning when right hand value uses `#freeze` method
     * ref: https://github.com/soutaro/steep/issues/363
+* Rule 3:
+  * Convert a scoped module/class definition (ex. `Foo::Bar::Baz`) to the nested definitions
+  * This is useful to define intermediate modules automatically like what Rails and zeitwerk does.
 
 ## Development
 
