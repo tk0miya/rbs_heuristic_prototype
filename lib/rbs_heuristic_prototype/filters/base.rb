@@ -84,8 +84,9 @@ module RbsHeuristicPrototype
       end
 
       def const_get(decl)
-        decl.name.to_namespace.path.inject(Kernel) do |const, mod|
-          const.const_get(mod)
+        init = Kernel # : singleton(Class)?
+        decl.name.to_namespace.path.inject(init) do |const, mod|
+          const&.const_get(mod)
         end
       rescue StandardError
         nil

@@ -1,7 +1,9 @@
 module RbsHeuristicPrototype
   module Filters
     class ActiveModelValidationsFilter < Base
-      @klass: Class?
+      attr_reader klass: singleton(ActiveModel::Validations)?
+
+      @klass: singleton(ActiveModel::Validations)?
 
       def process_class: (RBS::AST::Declarations::Class decl) -> RBS::AST::Declarations::Class
       def process_member: (RBS::AST::Members::t member) -> RBS::AST::Members::t
