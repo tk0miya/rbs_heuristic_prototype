@@ -29,7 +29,7 @@ gems:
 ## Usage
 
 1. Run `rbs prototype rb` or `rbs prototype runtime` first
-2. Run `rbs:prototype:heuristic`
+2. Run `rbs:prototype:heuristic:apply`
 
 Then rbs_heuristic_prototype will update the prototype signature files generated
 by `rbs prototype` according to the heuristic rules.
@@ -66,8 +66,6 @@ expected to adhere to the [code of conduct](https://github.com/tk0miya/rbs_heuri
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Code of Conduct
-
-
 
 Everyone interacting in the RbsHeuristicPrototype project's codebases, issue trackers is
 expected to follow the [code of conduct](https://github.com/tk0miya/rbs_heuristic_prototype/blob/main/CODE_OF_CONDUCT.md).
