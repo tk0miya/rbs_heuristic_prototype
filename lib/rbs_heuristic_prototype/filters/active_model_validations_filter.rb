@@ -8,11 +8,16 @@ module RbsHeuristicPrototype
       attr_reader :klass
 
       def process_class(decl)
-        @klass = const_get(decl)
+        klass = const_get(decl)
 
-        return decl unless klass&.ancestors&.include?(ActiveModel::Validations)
-
-        super
+        if klass&.ancestors&.include?(ActiveModel::Validations)
+          @klass = klass
+          super
+        else
+          decl
+        end
+      ensure
+        @klass = nil
       end
 
       def process_member(member)

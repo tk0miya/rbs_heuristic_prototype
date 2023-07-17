@@ -19,11 +19,9 @@ module RbsHeuristicPrototype
       end
 
       def process_constant_type(type)
-        # @type var location: untyped
         name = RBS::TypeName.new(namespace: RBS::Namespace.root, name: :Symbol)
-        location = type.location
-        symbol = RBS::Types::Alias.new(name:, args: [], location:)
-        RBS::Types::ClassInstance.new(name: type.name, args: [symbol], location:)
+        symbol = RBS::Types::Alias.new(name:, args: [], location: type.location)
+        RBS::Types::ClassInstance.new(name: type.name, args: [symbol], location: type.location)
       end
 
       def symbol_array?(type)
