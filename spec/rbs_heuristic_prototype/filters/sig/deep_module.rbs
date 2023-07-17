@@ -1,0 +1,5 @@
+class Mod::Mod::Class::Class < Integer
+end
+
+module Mod::Class::Mod
+end

@@ -15,5 +15,9 @@ Style/StringLiteralsInInterpolation:
 Layout/LineLength:
   Max: 120
 
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+
 Metrics/MethodLength:
   Max: 20
