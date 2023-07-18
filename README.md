@@ -41,6 +41,8 @@ by `rbs prototype` according to the heuristic rules.
   * This is useful to avoid `Ruby::IncompatibleAssignment` warning when right hand value uses `#freeze` method
     * ref: https://github.com/soutaro/steep/issues/363
 * Rule 3:
+  * Convert a callback method of ActiveModel subclass to a method returning "void" (ex. `before_save` callback)
+* Rule 4:
   * Convert a scoped module/class definition (ex. `Foo::Bar::Baz`) to the nested definitions
   * This is useful to define intermediate modules automatically like what Rails and zeitwerk does.
 
