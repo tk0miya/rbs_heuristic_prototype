@@ -1,0 +1,5 @@
+module ActiveModel
+  module Validations
+    def self.__callbacks: () -> Hash[Symbol, Array[untyped]]
+  end
+end
