@@ -16,7 +16,7 @@ module RbsHeuristicPrototype
           process(decl)
         end
         RBS::Environment.new.tap do |env|
-          env.add_signature(buffer: RBS::Buffer.new(name: "dummy", content: ""), directives: [], decls:)
+          env.add_signature(buffer: RBS::Buffer.new(name: "dummy", content: ""), directives: [], decls: decls)
         end
       end
 
@@ -46,7 +46,7 @@ module RbsHeuristicPrototype
         RBS::AST::Declarations::Module.new(
           name: decl.name,
           type_params: decl.type_params,
-          members:,
+          members: members,
           self_types: decl.self_types,
           annotations: decl.annotations,
           location: decl.location,
@@ -68,7 +68,7 @@ module RbsHeuristicPrototype
           name: decl.name,
           type_params: decl.type_params,
           super_class: decl.super_class,
-          members:,
+          members: members,
           annotations: decl.annotations,
           location: decl.location,
           comment: decl.comment

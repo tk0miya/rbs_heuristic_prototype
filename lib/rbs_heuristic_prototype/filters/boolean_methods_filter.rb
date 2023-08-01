@@ -12,7 +12,7 @@ module RbsHeuristicPrototype
             overloads = member.overloads.map do |overload|
               overload.update(method_type: process_method_type(overload.method_type))
             end
-            member.update(overloads:)
+            member.update(overloads: overloads)
           else
             member
           end
@@ -23,15 +23,15 @@ module RbsHeuristicPrototype
 
       def process_method_type(method_type)
         type = process_type(method_type.type)
-        method_type.update(type:)
+        method_type.update(type: type)
       end
 
       def process_type(type)
         # @type var location: untyped
         name = RBS::TypeName.new(namespace: RBS::Namespace.empty, name: :boolish)
         location = type.return_type.location
-        return_type = RBS::Types::Alias.new(name:, args: [], location:)
-        type.update(return_type:)
+        return_type = RBS::Types::Alias.new(name: name, args: [], location: location)
+        type.update(return_type: return_type)
       end
     end
   end
