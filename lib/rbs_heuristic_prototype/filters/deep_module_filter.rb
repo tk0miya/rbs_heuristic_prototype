@@ -67,7 +67,7 @@ module RbsHeuristicPrototype
           RBS::AST::Declarations::Class.new(
             name: TypeName(obj.name.to_s.split("::").last.to_s),
             type_params: [],
-            super_class:,
+            super_class: super_class,
             members: [],
             annotations: [],
             location: nil,

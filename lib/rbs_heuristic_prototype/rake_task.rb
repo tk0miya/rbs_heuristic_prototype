@@ -51,13 +51,13 @@ module RbsHeuristicPrototype
 
     def load_env(path)
       loader = RBS::EnvironmentLoader.new(core_root: nil)
-      loader.add(path:)
+      loader.add(path: path)
       RBS::Environment.from_loader(loader)
     end
 
     def write_env(path, env)
       path.open("wt") do |out|
-        RBS::Writer.new(out:).write(env.declarations)
+        RBS::Writer.new(out: out).write(env.declarations)
       end
     end
   end

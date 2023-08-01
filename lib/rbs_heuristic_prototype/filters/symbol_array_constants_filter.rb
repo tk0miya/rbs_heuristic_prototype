@@ -20,7 +20,7 @@ module RbsHeuristicPrototype
 
       def process_constant_type(type)
         name = RBS::TypeName.new(namespace: RBS::Namespace.root, name: :Symbol)
-        symbol = RBS::Types::Alias.new(name:, args: [], location: type.location)
+        symbol = RBS::Types::Alias.new(name: name, args: [], location: type.location)
         RBS::Types::ClassInstance.new(name: type.name, args: [symbol], location: type.location)
       end
 
