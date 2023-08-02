@@ -45,6 +45,8 @@ by `rbs prototype` according to the heuristic rules.
 * Rule 4:
   * Convert a scoped module/class definition (ex. `Foo::Bar::Baz`) to the nested definitions
   * This is useful to define intermediate modules automatically like what Rails and zeitwerk does.
+* Rule 5:
+  * Convert a module reference without type arguments (ex. `include Enumerable`) to a module reference with type arguments (ex. `include Enumerable[untyped]`)
 
 ## Development
 

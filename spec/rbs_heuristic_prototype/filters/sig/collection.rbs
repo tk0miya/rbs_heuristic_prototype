@@ -1,0 +1,6 @@
+class Item < Struct
+end
+
+class Collection
+  include Enumerable
+end
