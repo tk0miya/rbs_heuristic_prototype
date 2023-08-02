@@ -10,7 +10,8 @@ module RbsHeuristicPrototype
       active_model_validations: Filters::ActiveModelValidationsFilter,
       boolean_methods: Filters::BooleanMethodsFilter,
       deep_module: Filters::DeepModuleFilter,
-      symbol_array_constants: Filters::SymbolArrayConstantsFilter
+      symbol_array_constants: Filters::SymbolArrayConstantsFilter,
+      type_args: Filters::TypeArgsFilter
     }.freeze
 
     attr_reader :name, :path
