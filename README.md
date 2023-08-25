@@ -8,7 +8,7 @@ Add a new entry to your Gemfile and run bundle install:
 
 ```
 group :development do
-  gem 'rbs_heuristic_prototype'
+  gem 'rbs_heuristic_prototype', require: false
 end
 ```
 
@@ -16,14 +16,6 @@ After the installation, please run rake task generator:
 
 ```
 bundle exec rails g rbs_heuristic_prototype:install
-```
-
-Additionally, it would be better to add the following entry to your rbs_collection.yml:
-
-```
-gems:
-  - name: rbs_heuristic_prototype
-    ignore: true
 ```
 
 ## Usage
