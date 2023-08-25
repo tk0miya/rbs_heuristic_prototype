@@ -1,6 +1,6 @@
 module RbsHeuristicPrototype
   class RakeTask < Rake::TaskLib
-    FILTERS: Hash[Symbol, singleton(Filters::Base)]
+    FILTERS: Hash[Symbol, String]
 
     attr_reader name: Symbol
     attr_reader path: Pathname
