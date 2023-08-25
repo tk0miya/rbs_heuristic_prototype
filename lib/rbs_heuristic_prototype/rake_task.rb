@@ -7,11 +7,11 @@ require "rake/tasklib"
 module RbsHeuristicPrototype
   class RakeTask < Rake::TaskLib
     FILTERS = {
-      active_model_validations: Filters::ActiveModelValidationsFilter,
-      boolean_methods: Filters::BooleanMethodsFilter,
-      deep_module: Filters::DeepModuleFilter,
-      symbol_array_constants: Filters::SymbolArrayConstantsFilter,
-      type_args: Filters::TypeArgsFilter
+      active_model_validations: "RbsHeuristicPrototype::Filters::ActiveModelValidationsFilter",
+      boolean_methods: "RbsHeuristicPrototype::Filters::BooleanMethodsFilter",
+      deep_module: "RbsHeuristicPrototype::Filters::DeepModuleFilter",
+      symbol_array_constants: "RbsHeuristicPrototype::Filters::SymbolArrayConstantsFilter",
+      type_args: "RbsHeuristicPrototype::Filters::TypeArgsFilter"
     }.freeze
 
     attr_reader :name, :path
@@ -38,11 +38,13 @@ module RbsHeuristicPrototype
     def define_apply_task
       desc "Apply heuristic filters to prototype signatures"
       task("#{name}:apply": :environment) do
+        require "rbs_heuristic_prototype"  # load RbsHeuristicPrototype lazily
+
         path.find do |entry|
           next unless entry.file?
 
           env = FILTERS.inject(load_env(entry)) do |result, (_name, filter)|
-            filter.new(result).apply
+            filter.constantize.new(result).apply
           end
 
           write_env(entry, env)
