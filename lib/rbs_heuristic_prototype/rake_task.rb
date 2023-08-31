@@ -9,6 +9,7 @@ module RbsHeuristicPrototype
     FILTERS = {
       active_model_validations: "RbsHeuristicPrototype::Filters::ActiveModelValidationsFilter",
       boolean_methods: "RbsHeuristicPrototype::Filters::BooleanMethodsFilter",
+      controller_concerns: "RbsHeuristicPrototype::Filters::ControllerConcernsFilter",
       deep_module: "RbsHeuristicPrototype::Filters::DeepModuleFilter",
       symbol_array_constants: "RbsHeuristicPrototype::Filters::SymbolArrayConstantsFilter",
       type_args: "RbsHeuristicPrototype::Filters::TypeArgsFilter"

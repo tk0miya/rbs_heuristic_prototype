@@ -1,0 +1,3 @@
+module Bloggable
+  extend ActiveSupport::Concern
+end
