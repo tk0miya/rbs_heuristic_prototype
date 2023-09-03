@@ -39,6 +39,8 @@ by `rbs prototype` according to the heuristic rules.
   * This is useful to define intermediate modules automatically like what Rails and zeitwerk does.
 * Rule 5:
   * Convert a module reference without type arguments (ex. `include Enumerable`) to a module reference with type arguments (ex. `include Enumerable[untyped]`)
+* Rule 6:
+  * Convert a module definition of controller concerns to have its module-self-types (ex. `module Loginable` to `module Loginable: ApplicationController`)
 
 ## Development
 

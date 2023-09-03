@@ -1,0 +1,47 @@
+# frozen_string_literal: true
+
+require_relative "base"
+require "active_support/concern"
+
+module RbsHeuristicPrototype
+  module Filters
+    class ControllerConcernsFilter < Base
+      def process_module(decl)
+        mod = const_get(decl)
+        if controller_concern?(mod) && decl.self_types.empty?
+          RBS::AST::Declarations::Module.new(
+            name: decl.name,
+            type_params: decl.type_params,
+            members: decl.members,
+            self_types: self_types_for(mod),
+            annotations: decl.annotations,
+            location: decl.location,
+            comment: decl.comment
+          )
+        else
+          decl
+        end
+      end
+
+      def controller_concern?(mod)
+        return false unless mod.instance_variable_defined?(:@_dependencies)
+
+        source_location = Kernel.const_source_location(mod.name)
+        return false unless source_location
+
+        filename, = source_location.first
+        filename.include?("app/controllers/concerns")
+      end
+
+      def self_types_for(mod)
+        name = if Kernel.const_get("ApplicationController") && !(mod > ApplicationController)
+                 TypeName("::ApplicationController")
+               else
+                 TypeName("::ActionController::Base")
+               end
+
+        [RBS::AST::Declarations::Module::Self.new(name: name, args: [], location: nil)]
+      end
+    end
+  end
+end
