@@ -5,7 +5,7 @@ require_relative "app/controllers/application_controller"
 require_relative "app/controllers/concerns/bloggable"
 require_relative "app/controllers/concerns/loginable"
 
-RSpec.describe RbsHeuristicPrototype::Filters::ControllerConcernsFilter do
+RSpec.describe RbsHeuristicPrototype::Filters::RailsConcernsFilter do
   describe "#apply" do
     subject { described_class.new(env).apply }
 

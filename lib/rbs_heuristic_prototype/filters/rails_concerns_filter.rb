@@ -5,7 +5,7 @@ require "active_support/concern"
 
 module RbsHeuristicPrototype
   module Filters
-    class ControllerConcernsFilter < Base
+    class RailsConcernsFilter < Base
       def process_module(decl)
         mod = const_get(decl)
         if mod && concern?(mod) && decl.self_types.empty?
