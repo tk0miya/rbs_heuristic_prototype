@@ -85,8 +85,13 @@ module RbsHeuristicPrototype
 
       def const_get(decl)
         init = Kernel # : singleton(Class)?
-        decl.name.to_namespace.path.inject(init) do |const, mod|
-          const&.const_get(mod)
+        case decl
+        when String
+          init&.const_get(decl)
+        when RBS::AST::Declarations::Module, RBS::AST::Declarations::Class
+          decl.name.to_namespace.path.inject(init) do |const, mod|
+            const&.const_get(mod)
+          end
         end
       rescue StandardError
         nil

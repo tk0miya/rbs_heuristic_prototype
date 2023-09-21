@@ -43,7 +43,7 @@ module RbsHeuristicPrototype
       end
 
       def self_types_for_controller(mod)
-        if Kernel.const_get("ApplicationController") && !(mod > ApplicationController)
+        if const_get("ApplicationController") && !(mod > ApplicationController)
           [TypeName("::ApplicationController")]
         else
           [TypeName("::ActionController::Base")]
@@ -51,7 +51,7 @@ module RbsHeuristicPrototype
       end
 
       def self_types_for_model(mod)
-        if Kernel.const_get("ApplicationRecord") && !(mod > ApplicationRecord)
+        if const_get("ApplicationRecord") && !(mod > ApplicationRecord)
           [TypeName("::ApplicationRecord")]
         else
           [TypeName("::ActiveRecord::Base")]
