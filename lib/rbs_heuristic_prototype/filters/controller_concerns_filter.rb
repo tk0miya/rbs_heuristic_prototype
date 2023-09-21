@@ -24,7 +24,7 @@ module RbsHeuristicPrototype
       end
 
       def controller_concern?(mod)
-        return false unless mod.instance_variable_defined?(:@_dependencies)
+        return false unless mod.singleton_class.ancestors.include?(ActiveSupport::Concern)
 
         source_location = Kernel.const_source_location(mod.name.to_s)
         return false unless source_location
