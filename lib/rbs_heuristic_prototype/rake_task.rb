@@ -11,6 +11,7 @@ module RbsHeuristicPrototype
       boolean_methods: "RbsHeuristicPrototype::Filters::BooleanMethodsFilter",
       deep_module: "RbsHeuristicPrototype::Filters::DeepModuleFilter",
       rails_concerns: "RbsHeuristicPrototype::Filters::RailsConcernsFilter",
+      rails_helpers: "RbsHeuristicPrototype::Filters::RailsHelpersFilter",
       symbol_array_constants: "RbsHeuristicPrototype::Filters::SymbolArrayConstantsFilter",
       type_args: "RbsHeuristicPrototype::Filters::TypeArgsFilter"
     }.freeze

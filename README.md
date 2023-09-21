@@ -41,6 +41,8 @@ by `rbs prototype` according to the heuristic rules.
   * Convert a module reference without type arguments (ex. `include Enumerable`) to a module reference with type arguments (ex. `include Enumerable[untyped]`)
 * Rule 6:
   * Convert a module definition of concerns to have its module-self-types (ex. `module Loginable` to `module Loginable: ApplicationController`)
+* Rule 7:
+  * Convert a module definition of helpers to have its module-self-types (ex. `module ApplicationHelper` to `module ApplicationHelper: ApplicationController, ActionView::Base`)
 
 ## Development
 
