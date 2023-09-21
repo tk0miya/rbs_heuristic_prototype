@@ -25,7 +25,7 @@ module RbsHeuristicPrototype
         if class_decl && decl.args.empty?
           RBS::AST::Declarations::Class::Super.new(
             name: decl.name,
-            args: class_decl.type_params.size.times.map { :untyped },
+            args: class_decl.type_params.size.times.map { RBS::Types::Bases::Any.new(location: nil) },
             location: decl.location
           )
         else
@@ -47,7 +47,7 @@ module RbsHeuristicPrototype
         if class_decl && decl.args.empty?
           RBS::AST::Members::Include.new(
             name: decl.name,
-            args: class_decl.type_params.size.times.map { :untyped },
+            args: class_decl.type_params.size.times.map { RBS::Types::Bases::Any.new(location: nil) },
             annotations: decl.annotations,
             location: decl.location,
             comment: decl.comment
