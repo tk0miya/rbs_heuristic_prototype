@@ -5,7 +5,8 @@ module RbsHeuristicPrototype
       def concern?: (Module mod) -> bool
       def self_types_for: (Module mod) -> Array[RBS::AST::Declarations::Module::Self]
       def self_types_for_controller: (Module mod) -> Array[RBS::TypeName]
-      def module_type_for: (Module mod) -> (:controller | :unknown)
+      def self_types_for_model: (Module mod) -> Array[RBS::TypeName]
+      def module_type_for: (Module mod) -> (:controller | :model | :unknown)
     end
   end
 end

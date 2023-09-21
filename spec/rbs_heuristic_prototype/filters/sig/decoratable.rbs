@@ -1,0 +1,3 @@
+module Decoratable
+  extend ActiveSupport::Concern
+end
