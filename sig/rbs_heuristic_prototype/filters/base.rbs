@@ -10,7 +10,7 @@ module RbsHeuristicPrototype
       def process_class: (RBS::AST::Declarations::Class decl) -> RBS::AST::Declarations::Class
       def process_constant: (RBS::AST::Declarations::Constant member) -> RBS::AST::Declarations::Constant
       def process_member: (RBS::AST::Members::t member) -> RBS::AST::Members::t
-      def const_get: (RBS::AST::Declarations::Class | RBS::AST::Declarations::Module decl) -> singleton(Class)?
+      def const_get: (String | RBS::AST::Declarations::Class | RBS::AST::Declarations::Module decl) -> singleton(Class)?
     end
   end
 end
