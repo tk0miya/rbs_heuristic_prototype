@@ -2,8 +2,10 @@ module RbsHeuristicPrototype
   module Filters
     class ControllerConcernsFilter < Base
       def process_module: (RBS::AST::Declarations::Module decl) -> RBS::AST::Declarations::Module
-      def controller_concern?: (Module mod) -> bool
+      def concern?: (Module mod) -> bool
       def self_types_for: (Module mod) -> Array[RBS::AST::Declarations::Module::Self]
+      def self_types_for_controller: (Module mod) -> Array[RBS::TypeName]
+      def module_type_for: (Module mod) -> (:controller | :unknown)
     end
   end
 end
