@@ -8,7 +8,7 @@ module RbsHeuristicPrototype
     class ControllerConcernsFilter < Base
       def process_module(decl)
         mod = const_get(decl)
-        if controller_concern?(mod) && decl.self_types.empty?
+        if mod && controller_concern?(mod) && decl.self_types.empty?
           RBS::AST::Declarations::Module.new(
             name: decl.name,
             type_params: decl.type_params,
@@ -26,10 +26,12 @@ module RbsHeuristicPrototype
       def controller_concern?(mod)
         return false unless mod.instance_variable_defined?(:@_dependencies)
 
-        source_location = Kernel.const_source_location(mod.name)
+        source_location = Kernel.const_source_location(mod.name.to_s)
         return false unless source_location
 
         filename, = source_location.first
+        return false unless filename
+
         filename.include?("app/controllers/concerns")
       end
 

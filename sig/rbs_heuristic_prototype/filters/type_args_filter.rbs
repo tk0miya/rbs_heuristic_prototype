@@ -1,0 +1,11 @@
+module RbsHeuristicPrototype
+  module Filters
+    class TypeArgsFilter < Base
+      def process_class: (RBS::AST::Declarations::Class decl) -> RBS::AST::Declarations::Class
+      def process_super_class: (RBS::AST::Declarations::Class::Super?) -> RBS::AST::Declarations::Class::Super?
+      def process_member: (RBS::AST::Members::t member) -> RBS::AST::Members::t
+      def process_include: (RBS::AST::Members::Include) -> RBS::AST::Members::Include
+      def external_env: () -> RBS::Environment
+    end
+  end
+end
