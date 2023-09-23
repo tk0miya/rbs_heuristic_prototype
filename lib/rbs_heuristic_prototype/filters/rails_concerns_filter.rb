@@ -19,7 +19,7 @@ module RbsHeuristicPrototype
             comment: decl.comment
           )
         else
-          decl
+          super
         end
       end
 
