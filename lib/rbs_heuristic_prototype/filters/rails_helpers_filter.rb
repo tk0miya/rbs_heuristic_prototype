@@ -19,11 +19,13 @@ module RbsHeuristicPrototype
             comment: decl.comment
           )
         else
-          decl
+          super
         end
       end
 
       def helper?(mod)
+        return false unless mod.name.to_s.end_with?("Helper")
+
         source_location = Kernel.const_source_location(mod.name.to_s)
         return false unless source_location
 
