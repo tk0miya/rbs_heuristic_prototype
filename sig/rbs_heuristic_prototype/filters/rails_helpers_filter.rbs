@@ -1,0 +1,9 @@
+module RbsHeuristicPrototype
+  module Filters
+    class RailsHelpersFilter < Base
+      def process_module: (RBS::AST::Declarations::Module decl) -> RBS::AST::Declarations::Module
+      def helper?: (Module mod) -> bool
+      def self_types_for: (Module mod) -> Array[RBS::AST::Declarations::Module::Self]
+    end
+  end
+end
