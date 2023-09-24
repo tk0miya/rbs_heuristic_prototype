@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "pathname"
+require "parallel"
 require "rake"
 require "rake/tasklib"
 
@@ -42,7 +43,7 @@ module RbsHeuristicPrototype
       task("#{name}:apply": :environment) do
         require "rbs_heuristic_prototype"  # load RbsHeuristicPrototype lazily
 
-        path.find do |entry|
+        Parallel.each(path.find) do |entry|
           next unless entry.file?
 
           env = FILTERS.inject(load_env(entry)) do |result, (_name, filter)|
