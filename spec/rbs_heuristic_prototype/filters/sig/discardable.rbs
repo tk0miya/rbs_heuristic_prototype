@@ -1,3 +1,0 @@
-module Discardable
-  extend ActiveSupport::Concern
-end
