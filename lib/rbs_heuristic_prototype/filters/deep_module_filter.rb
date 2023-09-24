@@ -12,7 +12,7 @@ module RbsHeuristicPrototype
         @stack = [::Kernel]
       end
 
-      def process_module(decl) # rubocop:disable Metrics/AbcSize
+      def process_module(decl)
         if decl.name.namespace.empty?
           namespaces = []
           stack << const_get(decl)
@@ -57,7 +57,7 @@ module RbsHeuristicPrototype
         namespaces
       end
 
-      def obj_to_decl(obj) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+      def obj_to_decl(obj) # rubocop:disable Metrics/MethodLength
         if obj.is_a?(Class)
           if (superclass = obj.superclass)
             super_class = RBS::AST::Declarations::Class::Super.new(name: TypeName(superclass.name.to_s),

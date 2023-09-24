@@ -3,6 +3,7 @@ PATH
   specs:
     rbs_heuristic_prototype (0.6.0)
       activesupport
+      parallel
       rbs
 
 GEM
