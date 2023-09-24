@@ -33,6 +33,14 @@ module RbsHeuristicPrototype
         stack.pop
       end
 
+      def process_class(decl)
+        mod = stack.last&.const_get(decl.name.to_s)
+        stack << mod
+        super
+      ensure
+        stack.pop
+      end
+
       def helper?(mod)
         return false unless mod.name.to_s.end_with?("Helper")
 
