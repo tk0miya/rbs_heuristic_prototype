@@ -43,6 +43,8 @@ by `rbs prototype` according to the heuristic rules.
   * Convert a module definition of concerns to have its module-self-types (ex. `module Loginable` to `module Loginable: ApplicationController`)
 * Rule 7:
   * Convert a module definition of helpers to have its module-self-types (ex. `module ApplicationHelper` to `module ApplicationHelper: ApplicationController, ActionView::Base`)
+* Rule 8:
+  * Convert an instance method of mailer class to a class method (ex. `AccountMailer#welcome_mail` to `AccountMailer.welcome_mail`)
 
 ## Development
 

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative "rbs_heuristic_prototype/filters/action_mailer_filter"
 require_relative "rbs_heuristic_prototype/filters/active_model_validations_filter"
 require_relative "rbs_heuristic_prototype/filters/boolean_methods_filter"
 require_relative "rbs_heuristic_prototype/filters/deep_module_filter"

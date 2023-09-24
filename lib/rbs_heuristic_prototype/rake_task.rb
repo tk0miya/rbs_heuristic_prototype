@@ -8,6 +8,7 @@ require "rake/tasklib"
 module RbsHeuristicPrototype
   class RakeTask < Rake::TaskLib
     FILTERS = {
+      action_mailer: "RbsHeuristicPrototype::Filters::ActionMailerFilter",
       active_model_validations: "RbsHeuristicPrototype::Filters::ActiveModelValidationsFilter",
       boolean_methods: "RbsHeuristicPrototype::Filters::BooleanMethodsFilter",
       deep_module: "RbsHeuristicPrototype::Filters::DeepModuleFilter",

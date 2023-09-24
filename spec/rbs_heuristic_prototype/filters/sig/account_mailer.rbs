@@ -1,0 +1,7 @@
+class AccountMailer < ActionMailer::Base
+  def welcome_email: (untyped account) -> untyped
+
+  private
+
+  def subject: () -> String
+end
