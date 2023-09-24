@@ -33,6 +33,14 @@ module RbsHeuristicPrototype
         stack.pop
       end
 
+      def process_class(decl)
+        mod = stack.last&.const_get(decl.name.to_s)
+        stack << mod
+        super
+      ensure
+        stack.pop
+      end
+
       def concern?(mod)
         mod.singleton_class.ancestors.include?(ActiveSupport::Concern)
       end
