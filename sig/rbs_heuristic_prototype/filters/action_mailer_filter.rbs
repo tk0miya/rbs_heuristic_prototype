@@ -4,7 +4,7 @@ module RbsHeuristicPrototype
       def process_class: (RBS::AST::Declarations::Class decl) -> RBS::AST::Declarations::Class
       def process_mailer_class: (RBS::AST::Declarations::Class decl, Class klass) -> RBS::AST::Declarations::Class
       def process_mailer_members: (Array[RBS::AST::Declarations::Class::member] members) -> Array[RBS::AST::Declarations::t | RBS::AST::Members::t]
-      def process_mailer_method: (RBS::AST::Members::MethodDefinition member, Symbol visibility) -> RBS::AST::Members::MethodDefinition
+      def process_mailer_method: (RBS::AST::Members::MethodDefinition member, bool visibility) -> RBS::AST::Members::MethodDefinition
       def process_mailer_method_overload: (RBS::AST::Members::MethodDefinition::Overload overload) -> RBS::AST::Members::MethodDefinition::Overload
       def process_mailer_method_method_type: (RBS::MethodType method_type) -> RBS::MethodType
     end
