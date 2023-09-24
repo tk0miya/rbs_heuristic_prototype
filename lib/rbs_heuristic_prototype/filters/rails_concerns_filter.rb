@@ -41,8 +41,6 @@ module RbsHeuristicPrototype
         names = case module_type_for(mod)
                 when :controller
                   self_types_for_controller(mod)
-                when :model
-                  self_types_for_model(mod)
                 else
                   []
                 end
@@ -60,14 +58,6 @@ module RbsHeuristicPrototype
         end
       end
 
-      def self_types_for_model(mod)
-        if const_get("ApplicationRecord") && !(mod > ApplicationRecord)
-          [TypeName("::ApplicationRecord")]
-        else
-          [TypeName("::ActiveRecord::Base")]
-        end
-      end
-
       def module_type_for(mod)
         source_location = Kernel.const_source_location(mod.name.to_s)
         return :unknown unless source_location
@@ -77,8 +67,6 @@ module RbsHeuristicPrototype
         case filename
         when %r{app/controllers/concerns}
           :controller
-        when %r{app/models/concerns}
-          :model
         else
           :unknown
         end
