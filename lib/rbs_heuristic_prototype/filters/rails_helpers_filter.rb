@@ -6,8 +6,16 @@ require "active_support/concern"
 module RbsHeuristicPrototype
   module Filters
     class RailsHelpersFilter < Base
+      attr_reader :stack
+
+      def initialize(env)
+        super
+        @stack = [::Kernel]
+      end
+
       def process_module(decl)
-        mod = const_get(decl)
+        mod = stack.last&.const_get(decl.name.to_s)
+        stack << mod
         if mod && helper?(mod) && decl.self_types.empty?
           RBS::AST::Declarations::Module.new(
             name: decl.name,
@@ -21,6 +29,8 @@ module RbsHeuristicPrototype
         else
           super
         end
+      ensure
+        stack.pop
       end
 
       def helper?(mod)
