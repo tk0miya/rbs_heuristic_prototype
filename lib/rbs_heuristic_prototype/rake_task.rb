@@ -42,7 +42,7 @@ module RbsHeuristicPrototype
     def define_apply_task
       desc "Apply heuristic filters to prototype signatures"
       task("#{name}:apply": :environment) do
-        require "rbs_heuristic_prototype"  # load RbsHeuristicPrototype lazily
+        require "rbs_heuristic_prototype" # load RbsHeuristicPrototype lazily
 
         Parallel.each(path.find) do |entry|
           next unless entry.file?
