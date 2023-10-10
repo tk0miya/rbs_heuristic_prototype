@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rbs_heuristic_prototype (0.6.0)
+    rbs_heuristic_prototype (0.7.0)
       actionmailer
       activesupport
       parallel
@@ -79,7 +79,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.5)
     minitest (5.19.0)
-    net-imap (0.3.7)
+    net-imap (0.4.1)
       date
       net-protocol
     net-pop (0.1.2)
