@@ -8,7 +8,7 @@ gemspec
 gem "activerecord"
 gem "railties"
 gem "rake", "~> 13.2"
-gem "rubocop", "~> 1.62"
+gem "rubocop", "~> 1.63"
 
 group :development do
   gem "rspec", require: false
