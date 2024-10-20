@@ -39,7 +39,7 @@ GEM
     activejob (7.1.4.1)
       activesupport (= 7.1.4.1)
       globalid (>= 0.3.6)
-    activerecord (3.2.14)
+    activerecord (7.1.4.1)
     activesupport (7.1.4.1)
       base64
       bigdecimal
