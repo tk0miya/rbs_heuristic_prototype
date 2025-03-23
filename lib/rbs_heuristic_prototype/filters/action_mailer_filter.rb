@@ -69,7 +69,7 @@ module RbsHeuristicPrototype
 
       def process_mailer_method_method_type(method_type)
         # @type var location: untyped
-        name = TypeName("::ActionMailer::MessageDelivery")
+        name = RBS::TypeName.parse("::ActionMailer::MessageDelivery")
         location = method_type.type.return_type.location
         return_type = RBS::Types::Alias.new(name: name, args: [], location: location)
         method_type.update(type: method_type.type.update(return_type: return_type))

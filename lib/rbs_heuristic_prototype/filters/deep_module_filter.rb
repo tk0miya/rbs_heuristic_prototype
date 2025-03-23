@@ -60,12 +60,12 @@ module RbsHeuristicPrototype
       def obj_to_decl(obj) # rubocop:disable Metrics/MethodLength
         if obj.is_a?(Class)
           if (superclass = obj.superclass)
-            super_class = RBS::AST::Declarations::Class::Super.new(name: TypeName(superclass.name.to_s),
+            super_class = RBS::AST::Declarations::Class::Super.new(name: RBS::TypeName.parse(superclass.name.to_s),
                                                                    args: [],
                                                                    location: nil)
           end
           RBS::AST::Declarations::Class.new(
-            name: TypeName(obj.name.to_s.split("::").last.to_s),
+            name: RBS::TypeName.parse(obj.name.to_s.split("::").last.to_s),
             type_params: [],
             super_class: super_class,
             members: [],
@@ -75,7 +75,7 @@ module RbsHeuristicPrototype
           )
         else
           RBS::AST::Declarations::Module.new(
-            name: TypeName(obj.name.to_s.split("::").last.to_s),
+            name: RBS::TypeName.parse(obj.name.to_s.split("::").last.to_s),
             type_params: [],
             members: [],
             self_types: [],

@@ -60,9 +60,9 @@ module RbsHeuristicPrototype
 
       def self_types_for_controller(mod)
         if const_get("ApplicationController") && !(mod > ApplicationController)
-          [TypeName("::ApplicationController")]
+          [RBS::TypeName.parse("::ApplicationController")]
         else
-          [TypeName("::ActionController::Base")]
+          [RBS::TypeName.parse("::ActionController::Base")]
         end
       end
 
