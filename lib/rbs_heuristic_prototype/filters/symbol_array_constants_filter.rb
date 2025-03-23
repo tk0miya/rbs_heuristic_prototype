@@ -11,7 +11,8 @@ module RbsHeuristicPrototype
             name: constant.name,
             type: process_constant_type(constant.type),
             location: constant.location,
-            comment: constant.comment
+            comment: constant.comment,
+            annotations: []
           )
         else
           constant
