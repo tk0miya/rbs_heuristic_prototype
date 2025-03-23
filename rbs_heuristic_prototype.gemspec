@@ -30,5 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "actionmailer"
   spec.add_dependency "activesupport"
   spec.add_dependency "parallel"
-  spec.add_dependency "rbs"
+  spec.add_dependency "rbs", ">= 3.8.0"
 end
