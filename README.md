@@ -2,6 +2,8 @@
 
 Update prototype signature files by heuristic rules.
 
+Important: Now this project has been archived because I migrated to [RBS::Inline](https://github.com/soutaro/rbs-inline) from `rbs prototype rb`.
+
 ## Installation
 
 Add a new entry to your Gemfile and run bundle install:
