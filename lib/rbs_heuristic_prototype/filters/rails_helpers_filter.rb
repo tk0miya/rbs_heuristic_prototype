@@ -56,14 +56,14 @@ module RbsHeuristicPrototype
       def self_types_for(mod)
         names = []
         names << if const_get("ApplicationController")
-                   TypeName("::ApplicationController")
+                   RBS::TypeName.parse("::ApplicationController")
                  else
-                   TypeName("::ActionController::Base")
+                   RBS::TypeName.parse("::ActionController::Base")
                  end
         names << if mod.name == "ApplicationHelper"
-                   TypeName("::ActionView::Base")
+                   RBS::TypeName.parse("::ActionView::Base")
                  else
-                   TypeName("::ApplicationHelper")
+                   RBS::TypeName.parse("::ApplicationHelper")
                  end
 
         names.map do |name|
